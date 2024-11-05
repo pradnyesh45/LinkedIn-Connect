@@ -30,7 +30,7 @@ async def create_message(posts, profile_info=None):
     2. Make it personal and specific
     3. Reference their recent activity or interests
     4. Keep it professional
-    5. Don't exceed 300 characters
+    5. Don't exceed 200 characters
     """
 
     # Store parameters

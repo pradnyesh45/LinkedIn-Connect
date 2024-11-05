@@ -9,7 +9,7 @@ import time
 async def get_profile_data(username: str, password: str, profile_url: str):
     options = webdriver.ChromeOptions()
     # Comment out headless mode for debugging
-    # options.add_argument('--headless')
+    options.add_argument('--headless')
     options.add_argument('--no-sandbox')
     options.add_argument('--disable-dev-shm-usage')
     
@@ -48,7 +48,6 @@ async def get_profile_data(username: str, password: str, profile_url: str):
                 EC.presence_of_all_elements_located((By.CSS_SELECTOR, 
                     "div.feed-shared-update-v2"))
             )
-            print("post_elements", post_elements)
             
             # Get last 5 posts
             for element in post_elements[:5]:
