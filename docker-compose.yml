@@ -1,0 +1,22 @@
+version: "3.8"
+
+services:
+  backend:
+    build: ./backend
+    ports:
+      - "8000:8000"
+    environment:
+      - MODEL_PATH=/app/models
+    volumes:
+      - ./backend:/app
+      - model-data:/app/models
+
+  frontend:
+    build: ./frontend
+    ports:
+      - "3000:3000"
+    depends_on:
+      - backend
+
+volumes:
+  model-data:

@@ -4,10 +4,12 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.chrome.service import Service
 from webdriver_manager.chrome import ChromeDriverManager
+import time
 
 async def get_profile_data(username: str, password: str, profile_url: str):
     options = webdriver.ChromeOptions()
-    options.add_argument('--headless')
+    # Comment out headless mode for debugging
+    # options.add_argument('--headless')
     options.add_argument('--no-sandbox')
     options.add_argument('--disable-dev-shm-usage')
     
@@ -27,29 +29,48 @@ async def get_profile_data(username: str, password: str, profile_url: str):
         # Get basic profile info
         profile_info = {}
         try:
-            profile_info["name"] = driver.find_element(By.CSS_SELECTOR, "h1.text-heading-xlarge").text
-            profile_info["headline"] = driver.find_element(By.CSS_SELECTOR, ".text-body-medium").text
+            # profile_info["name"] = driver.find_element(By.CSS_SELECTOR, "h1.text-heading-xlarge").text
+            profile_info["name"] = driver.find_element(By.CSS_SELECTOR, "h1.RIbnCAsTbWzbdDScQkPGXRrQHSaITKZWQhh").text
+            profile_info["headline"] = driver.find_element(By.CSS_SELECTOR, "div.text-body-medium.break-words").text
         except:
             pass
         
         # Get posts
         posts = []
         try:
-            # Wait for posts to load
+            # Directly navigate to the posts page
+            posts_url = f"{profile_url}recent-activity/all/"
+            driver.get(posts_url)
+            time.sleep(5)
+            
+            # Now get the posts
             post_elements = WebDriverWait(driver, 10).until(
-                EC.presence_of_all_elements_located((By.CSS_SELECTOR, ".feed-shared-update-v2"))
+                EC.presence_of_all_elements_located((By.CSS_SELECTOR, 
+                    "div.feed-shared-update-v2"))
             )
+            print("post_elements", post_elements)
             
             # Get last 5 posts
             for element in post_elements[:5]:
                 try:
-                    content = element.find_element(By.CSS_SELECTOR, ".feed-shared-text").text
-                    timestamp = element.find_element(By.CSS_SELECTOR, "time").get_attribute("datetime")
+                    # First find the description wrapper
+                    desc_wrapper = element.find_element(By.CSS_SELECTOR, 
+                        "div.feed-shared-update-v2__description-wrapper")
+                    
+                    # Then get the content from within the wrapper
+                    content = desc_wrapper.find_element(By.CSS_SELECTOR, 
+                        "div.update-components-text span.break-words").text
+                    
+                    # Get timestamp from the actor component
+                    timestamp = element.find_element(By.CSS_SELECTOR, 
+                        "span.update-components-actor__sub-description").text
+                    
                     posts.append({
                         "content": content,
                         "timestamp": timestamp
                     })
-                except:
+                except Exception as e:
+                    print(f"Error extracting post: {str(e)}")
                     continue
         except:
             pass
