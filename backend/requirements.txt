@@ -1,0 +1,8 @@
+fastapi
+uvicorn
+python-dotenv
+google-generativeai
+selenium
+webdriver_manager
+pydantic
+pydantic-settings
