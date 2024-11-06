@@ -1,16 +1,6 @@
 # LinkedIn Connect
 
-AI application that sends a personalised message while sending connection request on LinkedIn.
-
-## Demo Video
-
-https://www.loom.com/share/your-video-id-here
-
-> The video demonstrates:
->
-> - Setting up the application
-> - Generating personalized LinkedIn connection messages
-> - Key features and functionality
+AI application to send a personalised message while sending connection request on LinkedIn.
 
 ## Local Setup (MacOS)
 
@@ -22,22 +12,15 @@ https://www.loom.com/share/your-video-id-here
    cd backend
    ```
 
-2. **Install Dependencies** (Required)
+2. **Install Dependencies**
 
    ```bash
    pip3 install -r requirements.txt
    ```
 
-   Optional: If you prefer using a virtual environment first:
-
-   ```bash
-   python3 -m venv venv
-   source venv/bin/activate
-   ```
-
 3. **Run the Backend**
    ```bash
-   uvicorn app.main:app --reload
+   python3 -m uvicorn app.main:app --reload
    ```
    The API will be available at `http://localhost:8000`
 
@@ -66,6 +49,12 @@ https://www.loom.com/share/your-video-id-here
 > Note: Docker setup is currently experiencing issues with ChromeDriver in the container environment. Please use the local setup instead.
 
 ## API Documentation
+
+Visit `http://localhost:8000/docs` for the interactive Swagger documentation.
+
+### Health Check
+
+**Endpoint:** `GET /api/health`
 
 ### Generate LinkedIn Message
 
@@ -152,3 +141,5 @@ https://www.loom.com/share/your-video-id-here
 
 - Cursor IDE with Claude AI for code suggestions and debugging
 - ChatGPT for code assistance and troubleshooting
+
+> Note: Due to my extensive testing during development with multiple login attempts, LinkedIn now requires additional security checks (like CAPTCHA) on my personal account only. This won't affect you - your account will work normally without these security prompts.

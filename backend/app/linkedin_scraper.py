@@ -8,7 +8,6 @@ import time
 
 async def get_profile_data(username: str, password: str, profile_url: str):
     options = webdriver.ChromeOptions()
-    # Comment out headless mode for debugging
     options.add_argument('--headless')
     options.add_argument('--no-sandbox')
     options.add_argument('--disable-dev-shm-usage')
@@ -29,12 +28,12 @@ async def get_profile_data(username: str, password: str, profile_url: str):
         # Get basic profile info
         profile_info = {}
         try:
-            # profile_info["name"] = driver.find_element(By.CSS_SELECTOR, "h1.text-heading-xlarge").text
             profile_info["name"] = driver.find_element(By.CSS_SELECTOR, "h1.RIbnCAsTbWzbdDScQkPGXRrQHSaITKZWQhh").text
             profile_info["headline"] = driver.find_element(By.CSS_SELECTOR, "div.text-body-medium.break-words").text
+                
         except:
             pass
-        
+            
         # Get posts
         posts = []
         try:
@@ -69,7 +68,6 @@ async def get_profile_data(username: str, password: str, profile_url: str):
                         "timestamp": timestamp
                     })
                 except Exception as e:
-                    print(f"Error extracting post: {str(e)}")
                     continue
         except:
             pass
