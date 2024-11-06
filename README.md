@@ -14,13 +14,21 @@ AI application to send a personalised message while sending connection request o
    cd backend
    ```
 
-2. **Install Dependencies**
+2. **Create .env file**
+
+   ```bash
+   GOOGLE_API_KEY=your_google_palm_api_key
+   ```
+
+   Get your API key from [Google MakerSuite](https://makersuite.google.com/app/apikey)
+
+3. **Install Dependencies**
 
    ```bash
    pip3 install -r requirements.txt
    ```
 
-3. **Run the Backend**
+4. **Run the Backend**
    ```bash
    python3 -m uvicorn app.main:app --reload
    ```
