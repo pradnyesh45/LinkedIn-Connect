@@ -6,3 +6,9 @@ selenium
 webdriver_manager
 pydantic
 pydantic-settings
+
+# Test dependencies
+pytest
+pytest-asyncio
+pytest-mock
+httpx

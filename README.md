@@ -2,6 +2,8 @@
 
 AI application to send a personalised message while sending connection request on LinkedIn.
 
+> Note: Due to my extensive testing during development with multiple login attempts, LinkedIn now requires additional security checks (like CAPTCHA) on my personal account only. This won't affect you - your account will work normally without these security prompts.
+
 ## Local Setup (MacOS)
 
 ### Backend Setup
@@ -141,5 +143,3 @@ Visit `http://localhost:8000/docs` for the interactive Swagger documentation.
 
 - Cursor IDE with Claude AI for code suggestions and debugging
 - ChatGPT for code assistance and troubleshooting
-
-> Note: Due to my extensive testing during development with multiple login attempts, LinkedIn now requires additional security checks (like CAPTCHA) on my personal account only. This won't affect you - your account will work normally without these security prompts.
