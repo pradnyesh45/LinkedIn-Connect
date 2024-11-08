@@ -28,7 +28,7 @@ async def get_profile_data(username: str, password: str, profile_url: str):
         # Get basic profile info
         profile_info = {}
         try:
-            profile_info["name"] = driver.find_element(By.CSS_SELECTOR, "h1.RIbnCAsTbWzbdDScQkPGXRrQHSaITKZWQhh").text
+            profile_info["name"] = driver.find_element(By.CSS_SELECTOR, "h1.text-heading-xlarge.inline.t-24.v-align-middle.break-words").text
             profile_info["headline"] = driver.find_element(By.CSS_SELECTOR, "div.text-body-medium.break-words").text
                 
         except:

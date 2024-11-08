@@ -4,6 +4,10 @@ AI application to send a personalised message while sending connection request o
 
 > Note: Due to my extensive testing during development with multiple login attempts, LinkedIn now requires additional security checks (like CAPTCHA) on my personal account only. This won't affect you - your account will work normally without these security prompts.
 
+## Video Demo
+
+You can view the demo of the application [here](https://drive.google.com/file/d/1FNk22TzJP2ka9TzmBKQvJ1PnXqBb1QMf/view?usp=sharing).
+
 ## Local Setup (MacOS)
 
 ### Backend Setup
