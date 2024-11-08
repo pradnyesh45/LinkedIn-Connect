@@ -18,7 +18,14 @@ You can view the demo of the application [here](https://drive.google.com/file/d/
    cd backend
    ```
 
-2. **Create .env file**
+2. **Create a Python virtual environment** (optional but recommended)
+
+   ```bash
+   python3 -m venv venv
+   source venv/bin/activate
+   ```
+
+3. **Create .env file**
 
    ```bash
    GOOGLE_API_KEY=your_google_palm_api_key
@@ -26,13 +33,13 @@ You can view the demo of the application [here](https://drive.google.com/file/d/
 
    Get your API key from [Google MakerSuite](https://makersuite.google.com/app/apikey)
 
-3. **Install Dependencies**
+4. **Install Dependencies**
 
    ```bash
-   pip3 install -r requirements.txt
+   pip install -r requirements.txt
    ```
 
-4. **Run the Backend**
+5. **Run the Backend**
    ```bash
    python3 -m uvicorn app.main:app --reload
    ```
