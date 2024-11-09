@@ -4,10 +4,6 @@ AI application to send a personalised message while sending connection request o
 
 > Note: Due to my extensive testing during development with multiple login attempts, LinkedIn now requires additional security checks (like CAPTCHA) on my personal account only. This won't affect you - your account will work normally without these security prompts.
 
-## Video Demo
-
-You can view the demo of the application [here](https://drive.google.com/file/d/1FNk22TzJP2ka9TzmBKQvJ1PnXqBb1QMf/view?usp=sharing).
-
 ## Local Setup (MacOS)
 
 ### Backend Setup
@@ -65,9 +61,9 @@ You can view the demo of the application [here](https://drive.google.com/file/d/
    ```
    The application will be available at `http://localhost:3000`
 
-## Docker Setup (⚠️ Currently Not Working)
+## Video Demo
 
-> Note: Docker setup is currently experiencing issues with ChromeDriver in the container environment. Please use the local setup instead.
+You can view the demo of the application [here](https://drive.google.com/file/d/1aC3MkCzsPCWelk7kPesJrcvDjmZt9KxG/view?usp=sharing).
 
 ## API Documentation
 
